@@ -24,14 +24,20 @@
           </ol>
         </div>
         <div class="right_section box">
-            <div><h2>Image Carousel</h2></div>
-            <div class="grid">
-          <img src="images/D2Logo.png" alt="Destiny 2 Logo" />
-          <img src="images/DiscordLogo.png" alt="Discord Logo" />
-          <img src="images/RainCloud.png" alt="Some nice rain clouds" />
-          <img src="images/Steamlogo.png" alt="Steam Logo" />
-            </div> 
-          <p class="box">Some things I like: Destiny 2, Discord, rain, and games on Steam.</p>
+          <div><h2>Image Carousel</h2></div>
+          <div class="carousel">
+            <button class="prev">prev</button>
+            <div class="slides">
+              <div class="carousel_item visible"><img src="images/D2Logo.png" alt="Destiny 2 Logo" /></div>
+              <div class="carousel_item hidden"><img src="images/DiscordLogo.png" alt="Discord Logo" /></div>
+              <div class="carousel_item hidden"><img src="images/RainCloud.png" alt="Some nice rain clouds" /></div>
+              <div class="carousel_item hidden"><img src="images/Steamlogo.png" alt="Steam Logo" /></div>
+            </div>
+            <button class="next">next</button>
+          </div>
+          <p class="box">
+            Some things I like: Destiny 2, Discord, rain, and games on Steam.
+          </p>
         </div>
       </div>
       <footer class="footer">
@@ -44,6 +50,6 @@
         >
       </footer>
     </div>
-    <script src="script.js" ></script>
+    <script src="script.js"></script>
   </body>
 </html>
