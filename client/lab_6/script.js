@@ -24,11 +24,11 @@ function injectHTML(list) {
   const listEl = document.createElement('ol');
   target.appendChild(listEl);
 
-  list.forEach((item => {
+  list.forEach(((item) => {
     const el = document.createElement('li');
     el.innerText = item.name;
     listEl.appendChild(el);
-  });
+  }));
   /*
   ## JS and HTML Injection
     There are a bunch of methods to inject text or HTML into a document using JS
