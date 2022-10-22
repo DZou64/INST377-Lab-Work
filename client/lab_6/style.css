@@ -330,7 +330,7 @@ form input {
   }
 
   .lds-ellipsis_hidden {
-    display: hidden
+    display: hidden;
   }
 
   .lds-ellipsis div {
