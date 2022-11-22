@@ -73,6 +73,15 @@ function processRestaurants(list) {
   */
 }
 
+function filterList(array, filterInputValue) {
+  return array.filter((item) => {
+    if (!item.name) { return; }
+    const lowerCaseName = item.name.toLowerCase();
+    const lowerCaseQuery = filterInputValue.toLowerCase();
+    return lowerCaseName.includes(lowerCaseQuery);
+  });
+}
+
 async function mainEvent() {
   /*
     ## Main Event
@@ -113,7 +122,7 @@ async function mainEvent() {
   // This IF statement ensures we can't do anything if we don't have information yet
   if (!arrayFromJson.data?.length) { return; } // the question mark in this means "if this is set at all"
 
-  const currentList = [];
+  let currentList = [];
 
   submit.style.display = 'block'; // let's turn the submit button back on by setting it to display as a block when we have data available
 
@@ -122,7 +131,8 @@ async function mainEvent() {
 
   form.addEventListener('input', (event) => {
     console.log('input', event.target.value);
-    injectHTML(currentList);
+    const filteredList = filterList(currentList, event.target.value);
+    injectHTML(filteredList);
   });
 
   // And here's an eventListener! It's listening for a "submit" button specifically being clicked
@@ -132,11 +142,10 @@ async function mainEvent() {
     submitEvent.preventDefault();
 
     // This constant will have the value of your 15-restaurant collection when it processes
-    const restaurantList = processRestaurants(arrayFromJson.data);
-    console.log(restaurantList);
+    currentList = processRestaurants(arrayFromJson.data);
 
     // And this function call will perform the "side effect" of injecting the HTML list for you
-    injectHTML(restaurantList);
+    injectHTML(currentList);
 
     // By separating the functions, we open the possibility of regenerating the list
     // without having to retrieve fresh data every time
